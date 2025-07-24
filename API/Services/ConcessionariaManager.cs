@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Model;
+using API.Model;
 
-namespace Services {
+namespace API.Services {
     public class ConcessionariaManager {
         public ConcessionariaManager() {}
 
@@ -13,7 +13,7 @@ namespace Services {
         }
 
         public Vehicle GetVehicle(int id) {
-            return vehicles[id];
+            return vehicles.Find(vehicle => vehicle.GetId() == id);
         }
 
         public Vehicle UpdateVehicle(int id, string? vehicleType, string? mark, string? model, int? year) {
@@ -30,7 +30,7 @@ namespace Services {
         }
 
         public void CreateVehicle(string type, string mark, string model, int year) {
-            vehicles.Add(new Vehicle (type, mark, model, year));
+            vehicles.Add(new Vehicle (vehicles.Count, type, mark, model, year));
         }
 
         public bool DeleteVehicle(int index)

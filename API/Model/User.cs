@@ -1,4 +1,4 @@
-namespace Model {
+namespace API.Model {
     public class User {
         protected int id;
         protected string email;

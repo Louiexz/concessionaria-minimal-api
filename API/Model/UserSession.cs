@@ -1,4 +1,4 @@
-namespace Model {
+namespace API.Model {
     public class UserSession
     {
         public bool IsLogged { get; set; } = false;

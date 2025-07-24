@@ -1,5 +1,5 @@
-using Controller;
-using Model;
+using API.Controller;
+using API.Model;
 
 var builder = WebApplication.CreateBuilder(args);
 

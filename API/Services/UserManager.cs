@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Model;
+using API.Model;
 
-namespace Services {
+namespace API.Services {
     public class UserManager {
         public UserManager() {}
 
@@ -13,15 +13,12 @@ namespace Services {
         }
 
         public User GetUser(int id) {
-            return users[id];
+            return users.Find(user => user.GetId() == id);
         }
 
         public bool Login(string email, string password) {
-            foreach (var user in users) {
-                if(user.GetEmail()  == email & user.GetPassword() == password) {
-                    return true;
-                }
-            }
+            if (users.Find(user => user.GetEmail() == email) != null
+                && users.Find(user => user.GetPassword() == password) != null) return true;
             return false;
         }
 
